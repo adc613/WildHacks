@@ -14,13 +14,13 @@ class UserAdmin(UserAdmin):
 	add_form = UserCreationForm
 
 	list_display = ('email', 'first_name','last_name',
-		'is_active', 'is_superuser', 'is_worker')
+		'is_active', 'is_superuser')
 	list_filter = ('is_superuser','is_admin')
 
 	fieldsets = (
 		(None, {'fields' : (
-		'email', 'first_name','last_name', 'password', 'is_superuser', 'is_active',
-		 'email_notifictions')
+		'email', 'first_name','last_name', 'password', 'is_superuser', 'is_active'
+		 )
 		}), ('Groups', {'fields' :('groups',)})
 		)
 
