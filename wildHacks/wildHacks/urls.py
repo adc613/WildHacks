@@ -6,5 +6,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'wildHacks.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^ideas/', include('ideas.urls'), namespace='ideas'),
+    #url(r'^users/', include('users.urls'), namespace='users'),
+
     url(r'^admin/', include(admin.site.urls)),
 )
