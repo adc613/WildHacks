@@ -26,10 +26,18 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+AUTH_USERS_MODEL = 'users.User'
 # Application definition
 
-INSTALLED_APPS = (
+LOCAL_APPS(
+    'users',
+    'ideas'
+    )
+
+THIRD_PARTY_APPS(
+) 
+
+DJANGO_APPS( 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,6 +45,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 )
+
+INSTALLED_APPS = LOCAL_APPS + THIRD_PARTY_APPS + DJANGO_APPS
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -47,6 +58,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates' )
 
 ROOT_URLCONF = 'wildHacks.urls'
 
@@ -81,3 +94,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_URL = '/users/login'
