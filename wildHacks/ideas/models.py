@@ -14,4 +14,6 @@ class Idea (models.Model):
     contributors = models.OneToManyField(blank=False)
     #A field that represents the numbers of upvotes a downvote is -1
     likes = models.IntegerField(default = 0)
+    #Publication date
+    pub_date = models.DateTimeField(auto_now_add=True, editable=False)
     
