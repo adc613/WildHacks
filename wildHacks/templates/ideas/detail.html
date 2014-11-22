@@ -1,0 +1,13 @@
+<body>
+<h1>{{ idea.title }}</h1>
+<h3>      {{ idea.short_discription }}</h3>
+<div>
+    <p>
+        {{ idea.long_discription }}
+    </p>
+</div>
+<div>
+    {% for contributor in contributors %}
+        {{ contributor.first_name }} {{ contributor.last_name }}
+    {% endfor %}
+</div>

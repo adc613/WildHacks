@@ -24,13 +24,14 @@ class IdeaCreationView(View):
     """
     A view to allow you to create an idea
     """
+    template_name = 'ideas/create.html'
     model = Idea
-   form = IdeaCreationForm
+    form = IdeaCreationFor
 
-   def get(self, request):
+    def get(self, request):
        return render(request, self.template_name,{})
 
-   def post(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
        form = self.form(request.POST or None)
 
        if form.is_valid():
