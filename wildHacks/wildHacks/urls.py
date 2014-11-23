@@ -12,6 +12,6 @@ urlpatterns = patterns('',
     url(r'^users/', include('users.urls', namespace='users')),
     url(r'^ideas/', include('ideas.urls', namespace='ideas')),
     #url(r'^users/', include('users.urls'), namespace='users'),
-
+#askdlfadsklfjadskl;f
     url(r'^admin/', include(admin.site.urls)),
 )

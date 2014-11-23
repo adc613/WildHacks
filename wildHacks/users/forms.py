@@ -34,7 +34,7 @@ class UserCreationForm(forms.ModelForm):
 
 class UserChangeForm(forms.ModelForm):
 	"""
-	Stolen code from django tutorial
+	Allows adjustment to change 
 	"""
 	password = ReadOnlyPasswordHashField()
 
