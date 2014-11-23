@@ -35,6 +35,7 @@ class UserCreationForm(forms.ModelForm):
 class UserChangeForm(forms.ModelForm):
 	"""
 	Stolen code from django tutorial
+	life
 	"""
 	password = ReadOnlyPasswordHashField()
 
