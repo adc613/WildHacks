@@ -14,7 +14,7 @@ class Idea (models.Model):
     #A field that represents the numbers of upvotes a downvote is -1
     likes = models.IntegerField(default = 0)
     #Publication date
-    pub_date = models.DateTimeField(auto_now_add=True, editable=False)
+    pub_date = models.DateTimeField(auto_now_add=True, auto_now=False, editable=False)
     #Author of the idea
     creator = models.ForeignKey('users.User', null=True)
 

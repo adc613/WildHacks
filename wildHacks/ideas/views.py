@@ -3,6 +3,8 @@ from django.shortcuts import render
 from django.views.generic import View
 from django.views.generic import ListView
 from django.views.generic import DetailView
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 
 from .models import *
 from .forms import *
@@ -36,6 +38,7 @@ class IdeaCreationView(View):
 
       if form.is_valid():
         save_it = form.save(commit=True)
+        save_it.creator = request.user
         save_it.save()
         messages.success(request,
                    """

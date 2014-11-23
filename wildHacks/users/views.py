@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.views.generic import View
@@ -22,11 +22,11 @@ class SignUpView(View):
     """
     Has the GET and POST methods for the signing up to be a user
     """
-    template_name = 'sign_up.html'
+    template_name = 'users/sign_up.html'
     form = UserCreationForm
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name, {})
+        return render(request, self.template_name, {'form' : self.form})
 
     def post(self, request, *args, **kwargs):
         form = self.form(request.POST or None)
@@ -48,7 +48,7 @@ class SignUpView(View):
                     again.
                     """
                     )
-            return HttpReposeRedirect(reverse('users:sign_up'))
+            return HttpReponseRedirect(reverse('users:sign_up'))
 
 class LoginView(View):
     """
@@ -60,13 +60,13 @@ class LoginView(View):
         return render(request, self.template_name, {})
 
     def post(self, request, *args, **kwargs):
-        username = request.POST['emai']
+        username = request.POST['email']
         password = request.POST['password']
 
         user = authenticate(username=username, password=password)
 
         if user is None:
-            message.success(request, 
+            message.error(request, 
                     """
                     Seems someone made a mistake please try again
                     """
