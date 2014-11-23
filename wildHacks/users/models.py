@@ -23,7 +23,8 @@ class UserManager(BaseUserManager):
         user = self.create_user(email, first_name, last_name, password=password)
         user.is_admin = True
         user.is_superuser = True
-        user.is_active = False
+        user.is_active = True
+        user.is_staff = True
         user.save()
         return user
 
@@ -39,8 +40,9 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     #Determins whether a person is an admin or not
     is_admin = models.BooleanField(default=False)
+    is_staff = False
     is_superuser = False
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     objects = UserManager()
     USERNAME_FIELD = 'email'
