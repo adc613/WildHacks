@@ -14,4 +14,6 @@ class Idea (models.Model):
     likes = models.IntegerField(default = 0)
     #Publication date
     pub_date = models.DateTimeField(auto_now_add=True, editable=False)
+    #Author of the idea
+    creator = models.ForeignKey('users.User', null=True)
     

@@ -1,9 +1,9 @@
 <body>
-    {% for idea in ideas %}
+    {% for idea in obeject_list %}
         <div>
-            {% idea.title %}
+            {{ idea.title }}
             <p>
-                {% idea.short_discription %}
+                {{ idea.short_discription }}
             </p>
         </div>
     {% endfor %}

@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.genric import View
-from djanog.genric.list import ListView
-from django.generic.detail import DetailView
-from django.generic import UpdateView
+from django.views.generic import View
+from django.views.generic import ListView
+from django.views.generic import DetailView
 
 from .models import *
 from .forms import *
@@ -18,7 +17,7 @@ class IdeaListView(ListView):
     List view of all the ideas
     """
     model = Idea
-    template = "users/list.html"
+    template_name = "ideas/list.html"
 
 class IdeaCreationView(View):
     """
@@ -26,30 +25,30 @@ class IdeaCreationView(View):
     """
     template_name = 'ideas/create.html'
     model = Idea
-    form = IdeaCreationFor
+    form = IdeaCreationForm
 
     def get(self, request):
-       return render(request, self.template_name,{})
+      return render(request, self.template_name, {'form' : self.form})
 
     def post(self, request, *args, **kwargs):
-       form = self.form(request.POST or None)
+      form = self.form(request.POST or None)
 
-       if form.is_valid():
-           save_it = form.save(commit=True)
-           save_it.save()
-           messages.success(request,
+      if form.is_valid():
+        save_it = form.save(commit=True)
+        save_it.save()
+        messages.success(request,
                    """
                    This could lead to the creation of the next google. Every 
                    redwood tree starts out as a seed planted somewhere.
                    """
                    )
-           return HttpResponseRedirect(reverse('thanks'))
-        else:
-            messages.error(request,
+        return HttpResponseRedirect(reverse('thanks'))
+      else:
+        messages.error(request,
                     """
                     There semes to have been a problem with your form. Plese try
                     resubmitting.
                     """
                     )
-            return HttpReponseRedirect(reverse('thanks'))
+        return HttpReponseRedirect(reverse('thanks'))
 

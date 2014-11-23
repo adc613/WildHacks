@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.contrib import messages
-from djanog.contrib.auth import login, logout
-from djanog.contrib.urlresolvers import reverse
+from django.contrib.auth import login, logout
+from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.views.generic import View
 
-from .forms import UserCreationForm
-from .models import Profile
+from .forms import *
+from .models import *
 
 def logout_view(request):
     """
@@ -23,7 +23,7 @@ class SignUpView(View):
     Has the GET and POST methods for the signing up to be a user
     """
     template_name = 'sign_up.html'
-    form UserCreationForm
+    form = UserCreationForm
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {})
@@ -41,7 +41,7 @@ class SignUpView(View):
                     """
                     )
             return HttpResponseRedirect(reverse('thanks'))
-        else
+        else:
             messages.error(request,
                     """
                     There seems to be an error with your application please try

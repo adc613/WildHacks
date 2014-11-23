@@ -36,7 +36,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=100, unique=True, primary_key=True)
     first_name = models.CharField(max_length=100, default="John")
     last_name = models.CharField(max_length=100, default="Doe")
-    ideas = models.ForeignKey('ideas.Idea', related_name='contributor')
 
     #Determins whether a person is an admin or not
     is_admin = models.BooleanField(default=False)
