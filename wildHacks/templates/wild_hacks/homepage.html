@@ -1,7 +1,13 @@
 {% extends 'wild_hacks/base.html' %}
 <h1>Welcome to Ideas.<h1>
-{% block content2 %}
+	{% block title %}
+		Ari, Just type a title here
+	{% endblock %}
 
+	{% block intro %}
+		Put a short disctription of who we are
+	{% endblock %}
 
-
-{% endblock %}
+	{% block button %}
+	<p><a class="btn btn-primary btn-lg" href="{% url 'about_us' %}" role="button">About Us &raquo;</a></p>
+	{% endblock %}
