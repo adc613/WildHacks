@@ -1,5 +1,7 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.utils.decorators import method_decorator
 from django.views.generic import View
 from django.views.generic import ListView
 from django.views.generic import DetailView
@@ -30,9 +32,11 @@ class IdeaCreationView(View):
     model = Idea
     form = IdeaCreationForm
 
+    @method_decorator(login_required)
     def get(self, request):
       return render(request, self.template_name, {'form' : self.form})
 
+    @method_decorator(login_required)
     def post(self, request, *args, **kwargs):
       form = self.form(request.POST or None)
 
@@ -54,5 +58,5 @@ class IdeaCreationView(View):
                     resubmitting.
                     """
                     )
-        return HttpReponseRedirect(reverse('thanks'))
+        return HttpResponseRedirect(reverse('thanks'))
 

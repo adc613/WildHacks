@@ -6,7 +6,7 @@ from .models import	User
 
 class UserCreationForm(forms.ModelForm):
 	"""
-	Stolen code from django tutorial
+	User creation form 
 	"""
 	password1 = forms.CharField(label='password',
 		widget = forms.PasswordInput)
@@ -34,12 +34,7 @@ class UserCreationForm(forms.ModelForm):
 
 class UserChangeForm(forms.ModelForm):
 	"""
-<<<<<<< HEAD
-	Stolen code from django tutorial
-	life
-=======
 	Allows adjustment to change 
->>>>>>> master
 	"""
 	password = ReadOnlyPasswordHashField()
 
