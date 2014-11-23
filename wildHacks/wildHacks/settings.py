@@ -64,6 +64,10 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates' ), 
     )
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 ROOT_URLCONF = 'wildHacks.urls'
 
 WSGI_APPLICATION = 'wildHacks.wsgi.application'
