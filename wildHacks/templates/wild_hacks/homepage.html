@@ -1,4 +1,12 @@
 <h1>HomePage</h1>
-<a href="{% url ideas:list %}"/> list </a>
-<a href="{% url users:login %}"/> login </a>
-<a href="{% url logout %}"></a>
+<p>
+<a href="{% url 'ideas:list' %}"/> list </a>
+</p>
+<p>
+<a href="{% url 'users:login' %}"/> login </a>
+<p>
+<a href="{% url 'users:logout' %}">logout</a>
+</p>
+<p>
+<a href="{% url 'ideas:create' %}"/> create </a>
+</p>

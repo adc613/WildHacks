@@ -1,8 +1,9 @@
-from django.contrib.urls import patterns, include, url
+from django.conf.urls import patterns, include, url
 
 from .views import *
 
-urlpatterns = url('',
-        url(r'^idea/(?<pk>)/$', IdeaDetailView.as_view(), name='detail'),
-        url(r'^idea_list/$', IdeaListView,as_view(), name='list'),
+urlpatterns = patterns('',
+        url(r'^idea/(?P<pk>)/$', IdeaDetailView.as_view(), name='detail'),
+        url(r'^idea_list/$', IdeaListView.as_view(), name='list'),
+        url(r'^create/$', IdeaCreationView.as_view(), name='create')
         )
