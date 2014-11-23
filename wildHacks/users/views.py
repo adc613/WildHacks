@@ -66,7 +66,7 @@ class LoginView(View):
         user = authenticate(username=username, password=password)
 
         if user is None:
-            message.error(request, 
+            messages.error(request, 
                     """
                     Seems someone made a mistake please try again
                     """
