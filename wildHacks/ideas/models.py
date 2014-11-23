@@ -20,9 +20,11 @@ class Idea (models.Model):
 
     def like(self):
         likes += 1
+        self.save()
 
     def dislike(sel):
         likes -= 1
+        self.save()
 
     def get_absolute_url(self):
         return reverse('ideas:detail', kwargs={'pk': self.pk})

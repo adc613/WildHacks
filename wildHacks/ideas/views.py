@@ -60,3 +60,4 @@ class IdeaCreationView(View):
                     )
         return HttpResponseRedirect(reverse('thanks'))
 
+
