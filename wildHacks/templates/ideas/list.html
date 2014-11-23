@@ -19,10 +19,14 @@ List of Ideas
                 {{ idea.short_discription }}
             </p>
             <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>!-->
-            {{ idea.likes }}   
-             </div>
+            {{ idea.likes }}
+             
         </div>
-    </a>
+        </a>
+        <a href="{% url 'ideas:like' idea.pk %}"> Up Vote</a>----
+        -----<a href="{% url 'ideas:dislike' idea.pk %}"> Down Vote</a>
+    </div>
+        
     {% endfor %}
     </div>
 {% endblock %}

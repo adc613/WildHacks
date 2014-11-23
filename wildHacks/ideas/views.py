@@ -60,3 +60,17 @@ class IdeaCreationView(View):
                     )
         return HttpResponseRedirect(reverse('thanks'))
 
+def like_view(request, **kwargs):
+  idea = Idea.objects.get(pk = kwargs['pk'])
+  idea.likes += 1
+  idea.save()
+
+  return HttpResponseRedirect(reverse('ideas:list'))
+
+def dislike_view(request, **kwargs):
+  idea = Idea.objects.get(pk = kwargs['pk'])
+  idea.likes -= 1
+  idea.save()
+
+  return HttpResponseRedirect(reverse('ideas:list'))
+

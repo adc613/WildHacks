@@ -1,6 +1,8 @@
-
+{% extends 'wild_hacks/base.html' %}
+{% block intro %}
 	{% for message in messages %}
 		<p>
 		{{ message }}
 		</p>
 	{% endfor %}
+{% endblock %}

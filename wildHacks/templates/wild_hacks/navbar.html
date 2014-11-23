@@ -23,6 +23,11 @@
             <button type="submit" class="btn btn-success">Sign in</button>
           
           </form>
+
+            <form action="{% url 'users:sign_up' %}" class="navbar-form navbar-right" role="form"/>
+          {% csrf_token %}
+            <button type="submit" class="btn btn-success">Sign Up</button>
+          </form>
           {% else %}
           <form method="post" action="{% url 'users:logout' %}" class="navbar-form navbar-right" role="form"/>
           {% csrf_token %}
