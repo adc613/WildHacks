@@ -1,13 +1,10 @@
-<<<<<<< HEAD
 from django.http import HttpResponse
 from django.template.loader import get_template
+from django.views.generic.base import TemplateView
 
 
-def homepage(request):
-	return 
-	"""
-	displays homepage
-	"""
+class HomePageView (TemplateView):
+	template_name = 'wild_hacks/homepage.html'
 
 def about_us(request):
 	return 
@@ -20,9 +17,4 @@ def thank_you(request):
 	"""
 	displays homepage
 	"""
-=======
-from django.views.generic.base import TemplateView
 
-class HomePageView (TemplateView):
-	template_name = 'wild_hacks/homepage.html'
->>>>>>> 68b07be05c7a5c9d75667dd3e6956d24a518a298
