@@ -61,7 +61,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates' ), 
+    '/Users/AriLewis/Desktop/Projects/WildHacks/wildHacks/templates', 
     )
 
 ROOT_URLCONF = 'wildHacks.urls'
