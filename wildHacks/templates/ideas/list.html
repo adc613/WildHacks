@@ -1,16 +1,29 @@
-<body>
+{% extends 'wild_hacks/base.html' %}
+{% block static_files %}
+    {% load static %}
+    <link href="{% static 'css/ideas_list.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+List of Ideas
+{% endblock %}
+
+{% block content %}
+    <div class="row">
     {% for idea in object_list %}
         <a href="{{ idea.get_absolute_url }}">
-        <div>
-            {{ idea.title }}
+        <div class="col-md-4">
+            <div class="idea"> 
+            <h2>{{ idea.title }}</h2>
             <p>
                 {{ idea.short_discription }}
             </p>
-            <p>
-                {{ idea.likes }}
-            </p>    
+            <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>!-->
+            {{ idea.likes }}   
+             </div>
         </div>
     </a>
     {% endfor %}
-</body>
+    </div>
+{% endblock %}
 

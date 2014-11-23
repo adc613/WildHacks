@@ -1,14 +1,11 @@
-<body>
-<h1>{{ idea.title }}</h1>
-<h3>      {{ idea.short_discription }}</h3>
-<div>
-    <p>
-        {{ idea.long_discription }}
-    </p>
-    <p>
-    	{{ idea.pub_date }}
-    </p>
-</div>
-<div>
-    {{ idea.creator }}
-</div>
+{% extends 'wild_hacks/base.html' %}
+]
+{% block  title %}
+	{{ idea.title }}
+{% endblock %}
+
+{% block intro %}
+	{{ idea.long_discription }}
+	<br/>
+	Created By: {{ idea.creator }}
+{% endblock %}
