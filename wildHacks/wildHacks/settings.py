@@ -29,15 +29,15 @@ ALLOWED_HOSTS = []
 AUTH_USERS_MODEL = 'users.User'
 # Application definition
 
-LOCAL_APPS(
+LOCAL_APPS = (
     'users',
     'ideas'
     )
 
-THIRD_PARTY_APPS(
+THIRD_PARTY_APPS = (
 ) 
 
-DJANGO_APPS( 
+DJANGO_APPS = ( 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,7 +59,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates' )
+TEMPLATE_DIRS = (
+        os.path.join(BASE_DIR, 'templates'),
+        )
+    
 
 ROOT_URLCONF = 'wildHacks.urls'
 
