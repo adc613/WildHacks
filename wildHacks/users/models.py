@@ -39,13 +39,19 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=100, default="Doe")
 
     #Determins whether a person is an admin or not
-    is_admin = models.BooleanField(default=False)
-    is_staff = False
-    is_superuser = False
+    is_admin = models.BooleanField(default=True)
+    is_staff = True
+    is_superuser = True
     is_active = models.BooleanField(default=True)
 
     objects = UserManager()
     USERNAME_FIELD = 'email'
+
+    def get_short_name(self):
+        return self.last_name
+
+    def get_username(self):
+        return self.email
     
     def __unicode__(self):
         return self.first_name + ' ' + self.last_name

@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render
 from django.views.generic import View
 from django.views.generic import ListView
@@ -10,7 +11,7 @@ class IdeaDetailView(DetailView):
     Detailed view of an individual idea
     """
     model = Idea
-    template = "ideas/detail.html"
+    template_name = "ideas/detail.html"
 
 class IdeaListView(ListView):
     """

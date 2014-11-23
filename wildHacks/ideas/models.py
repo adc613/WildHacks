@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 class Idea (models.Model):
     """
@@ -16,4 +17,13 @@ class Idea (models.Model):
     pub_date = models.DateTimeField(auto_now_add=True, editable=False)
     #Author of the idea
     creator = models.ForeignKey('users.User', null=True)
+
+    def like(self):
+        likes += 1
+
+    def dislike(sel):
+        likes -= 1
+
+    def get_absolute_url(self):
+        return reverse('ideas:detail', kwargs={'pk': self.pk})
     
