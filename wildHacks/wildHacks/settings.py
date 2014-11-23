@@ -75,17 +75,13 @@ WSGI_APPLICATION = 'wildHacks.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-<<<<<<< HEAD
-=======
 
->>>>>>> f8a839c18b2bfef5a37f42cfe8ccbc0e5b81fdb2
 if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
-<<<<<<< HEAD
     }
 else:
     DATABASES = {
@@ -98,7 +94,6 @@ else:
             'PORT': '5432',
         }
     }
-=======
     }
 
 else:
@@ -112,7 +107,6 @@ else:
             'PORT': '5432',
             }
         }
->>>>>>> f8a839c18b2bfef5a37f42cfe8ccbc0e5b81fdb2
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
