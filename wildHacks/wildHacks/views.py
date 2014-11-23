@@ -7,6 +7,7 @@ class HomePageView (TemplateView):
 	template_name = 'wild_hacks/homepage.html'
 
 class AboutUsView(TemplateView):
+	#sjkflashdfkjahsf
 	template_name = 'wild_hacks/about_us.html'
 
 
