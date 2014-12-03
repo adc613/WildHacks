@@ -1,0 +1,5 @@
+{% if search_results  %}
+    {% for result in search_results %}
+        <a href="{{ result.get_absolute_url }}"> <li>{{ result.title }}</li> </a>
+    {% endfor %}
+{% endif %}

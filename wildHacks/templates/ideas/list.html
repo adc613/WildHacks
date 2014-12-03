@@ -2,6 +2,9 @@
 {% block static_files %}
     {% load static %}
     <link href="{% static 'css/ideas_list.css' %}" rel="stylesheet">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/search.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/vote.js' %}"></script>
 {% endblock %}
 
 {% block title %}
@@ -19,15 +22,23 @@ List of Ideas
                 {{ idea.short_discription }}
             </p>
             <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>!-->
-            {{ idea.likes }}
+            <p id="votes_{{idea.pk}}">{{ idea.likes }}</p>
              
         </div>
         </a>
-        <a href="{% url 'ideas:like' idea.pk %}"> Up Vote</a>----
-        -----<a href="{% url 'ideas:dislike' idea.pk %}"> Down Vote</a>
+        <button class="up_vote" value={{ idea.pk }}> Up Vote </button>
+        <button class="down_vote" value={{ idea.pk }}> Down Vote </button>
     </div>
         
     {% endfor %}
     </div>
+    <h1>life</h1>
+    <div>
+    {% csrf_token %}
+    <input type='text' id='search' name='search'></input>
+    <ul id="search-results">
+
+    </ul>
+</div>
 {% endblock %}
 

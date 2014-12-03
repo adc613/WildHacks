@@ -35,7 +35,7 @@ LOCAL_APPS = (
     )
 
 THIRD_PARTY_APPS = (
-    #'debug_toolbar',
+    'debug_toolbar',
 ) 
 
 DJANGO_APPS = ( 
@@ -67,6 +67,7 @@ TEMPLATE_DIRS = (
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+STATIC_ROOT =  '/statics/'
 
 ROOT_URLCONF = 'wildHacks.urls'
 

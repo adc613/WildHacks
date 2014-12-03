@@ -1,0 +1,11 @@
+<head>
+    {% load static %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/search.js' %}"></script>
+</head>
+<body>
+    {% csrf_token %}
+    <input type='text' id='search' name='search'></input>
+    <ul id="search-results">
+    </ul>
+</body>

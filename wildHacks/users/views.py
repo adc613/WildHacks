@@ -1,8 +1,8 @@
-from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
 from django.views.generic import View
 
 from .forms import *

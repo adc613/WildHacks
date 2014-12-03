@@ -1,15 +1,18 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
-from django.utils.decorators import method_decorator
-from django.views.generic import View
-from django.views.generic import ListView
-from django.views.generic import DetailView
+from django.core.context_processors import csrf
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
+from django.shortcuts import render, render_to_response
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import DetailView
+from django.views.generic import ListView
+from django.views.generic import View
 
-from .models import *
 from .forms import *
+from .models import *
+
 class IdeaDetailView(DetailView):
     """
     Detailed view of an individual idea
@@ -74,3 +77,23 @@ def dislike_view(request, **kwargs):
 
   return HttpResponseRedirect(reverse('ideas:list'))
 
+class SearchView(View):
+    template_name = 'ideas/search.html'
+    results_name = 'ideas/results.html'
+
+    def get(self, request):
+        c = {}
+        #c.update(csrf(request))
+        return render(request, self.template_name, c)
+
+    def post(self, request, *args, **kwargs):
+        if request.POST['search']:
+            search = request.POST['search']
+        else:
+            search = ''
+
+        search_results = Idea.objects.filter(title__contains=search)
+
+        return render(request,
+                self.results_name,
+                {'search_results':search_results})
