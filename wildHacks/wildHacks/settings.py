@@ -84,7 +84,6 @@ if DEBUG:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-
 else:
     DATABASES = {
         'default': {
@@ -94,8 +93,9 @@ else:
             'PASSWORD': env('RDS_PASSWORD'),
             'HOST': env('RDS_HOST'),
             'PORT': '5432',
-            }
         }
+    }
+    }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

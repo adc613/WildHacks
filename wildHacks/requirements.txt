@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+Django==1.7.1
+=======
 Django==1.7.1
 django-debug-toolbar==1.2.2
 sqlparse==0.1.13
 wsgiref==0.1.2
+>>>>>>> f8a839c18b2bfef5a37f42cfe8ccbc0e5b81fdb2
