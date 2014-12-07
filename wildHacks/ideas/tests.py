@@ -42,6 +42,8 @@ class test_views(TestCase):
         c.login(email="adc82@case.edu", password="baxter")
         r = c.post(reverse("ideas:up_vote", kwargs={'pk':idea.pk}), follow=True)
         self.assertEqual(r.status_code, 200)
+        idea = Idea.objects.get(pk=idea.pk)
         self.assertEqual(idea.votes, 1)
+
         
 
