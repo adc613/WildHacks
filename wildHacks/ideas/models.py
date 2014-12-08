@@ -19,11 +19,11 @@ class Idea (models.Model):
     creator = models.ForeignKey('users.User', null=True)
 
     def up_vote(self):
-        votes += 1
+        self.votes += 1
         self.save()
 
     def down_vote(sel):
-        votes -= 1
+        self.votes -= 1
         self.save()
 
     def get_absolute_url(self):

@@ -40,10 +40,26 @@ class test_views(TestCase):
         idea = Idea.objects.get(title="Hello people")
         c = Client()
         c.login(email="adc82@case.edu", password="baxter")
-        r = c.post(reverse("ideas:up_vote", kwargs={'pk':idea.pk}), follow=True)
-        self.assertEqual(r.status_code, 200)
+        r = c.post(reverse("ideas:up_vote", kwargs={'pk':idea.pk}))
+        self.assertEqual(r.status_code, 302)
         idea = Idea.objects.get(pk=idea.pk)
         self.assertEqual(idea.votes, 1)
+        r = c.post(reverse("ideas:down_vote", kwargs={'pk':idea.pk}))
+        self.assertEqual(r.status_code, 302)
+        idea = Idea.objects.get(pk=idea.pk)
+        self.assertEqual(idea.votes, 0)
 
-        
+    def test_detail_view(self):
+        self.set_up()
+        c = Client()
+        resp = c.get(reverse('ideas:detail', kwargs={'pk':1}))
+        self.assertTemplateUsed(c, "ideas/detail.html")
+        self.assertEqual(resp.status_code, 200)
+        resp = c.get(reverse('ideas:detail', kwargs={'pk':99}))
+        self.assertEqual(resp.status_code, 404)
 
+    def test_idea_list_view(self):
+        self.set_up()
+        c = Client()
+        resp = c.get(reverse('ideas:list'))
+        self.assertTemplateUsed(resp, "ideas/list.html")
