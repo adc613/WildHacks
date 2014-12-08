@@ -29,3 +29,5 @@ class Idea (models.Model):
     def get_absolute_url(self):
         return reverse('ideas:detail', kwargs={'pk': self.pk})
     
+    def __unicode__(self):
+        return self.title
